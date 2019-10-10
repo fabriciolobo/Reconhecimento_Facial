@@ -4,3 +4,4 @@ import sklearn
 import skimage
 print("Bruno")
 print('Caio')
+print('novo teste')
