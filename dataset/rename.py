@@ -8,10 +8,10 @@ import os
 def main(): 
 	i = 0
 	
-	for filename in os.listdir("PetitCaio"):
-		dst ="Caio" + str(i) + ".jpg"
-		src ='PetitCaio/'+ filename 
-		dst ='PetitCaio/'+ dst 
+	for filename in os.listdir("Fab"):
+		dst ="Fabricio_" + str(i) + ".jpg"
+		src ='Fab/'+ filename 
+		dst ='Fab/'+ dst 
 		
 		# rename() function will 
 		# rename all the files 

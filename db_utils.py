@@ -1,6 +1,7 @@
 import numpy
 from os import listdir
 from face_detection import *
+from cv2 import cv2
 
 DATABASE_PATH = "dataset/"
 
@@ -14,6 +15,22 @@ def load_database_image():
     images = {}  # images[name] = [image_1, image_2, ...]
     # To complete ------------------
 
+    lista_pastas = ['Brunao', 'Fab', 'PetitCaio']
+
+    for i in lista_pastas:
+
+        files = listdir(i)
+
+        imagens_pessoa = []
+
+        for j in files:
+
+            image = cv2.imread(i + '/'+ j)
+            imagens_pessoa.append(image)
+
+        images[i] = imagens_pessoa
+            
+
     return images
 
 
@@ -26,9 +43,17 @@ def create_database(images):
 
     data_x = []  # List of normalised faces
     data_y = []  # List of labels
+
+    for item in images.keys():
+        for j in images[item]:
+            data_x.append(j)
+            data_y.append(item)
+        
+
+    
     # To complete ------------------
 
-    return numpy.array(data_x), numpy.array(data_y)
+    return data_x,data_y
 
 
 def load_labels():
@@ -65,3 +90,6 @@ def load_database():
 
     return data_x, data_y
 
+
+print(create_database(load_database_image()
+))
